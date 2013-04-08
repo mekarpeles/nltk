@@ -73,6 +73,11 @@ def edit_distance(s1, s2, transpositions=False):
     :type s2: str
     :type transpositions: bool
     :rtype int
+
+    usage:
+    >>> from nltk.metrics.distance import edit_distance
+    >>> edit_distance("nltk", "natural language toolkit")
+    20
     """
     # set up a 2-D array
     len1 = len(s1)
@@ -84,6 +89,24 @@ def edit_distance(s1, s2, transpositions=False):
         for j in range(len2):
             _edit_dist_step(lev, i + 1, j + 1, s1, s2, transpositions=transpositions)
     return lev[len1][len2]
+
+def gmd(w1, w2):
+    """Generalized Merge Distance (GDM)
+
+    Paper: Evaluating Entity Resolution Results
+    Url: http://ilpubs.stanford.edu:8090/975/3/ERMetricVLDB.pdf
+    Author(s): David Menestrina, Steven Euijong Whang, and Hector Garcia-Molina
+    {dmenest,swhang,hector}@cs.stanford.edu
+    Institution(s): Stanford University
+    
+    :param s1, s2: The strings to be analysed
+    :type s1: str
+    :type s2: str
+
+    >>> from nltk.metrics.distance import gmd
+    >>> gmd("nltk", "natural language toolkit")    
+    """
+    pass
 
 
 def binary_distance(label1, label2):
